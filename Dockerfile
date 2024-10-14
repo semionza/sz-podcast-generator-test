@@ -3,9 +3,18 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     python3.10 \
     python3-pip \
+    libyaml-dev \
+    python3-venv \
+    python3-virtualenv \
     git
+    
+RUN pip3 install pipx
 
-RUN pip3 install PyYAML
+RUN pipx install PyYAML
+
+# RUN pip install pyyaml --global-option=--with-libyaml
+
+# RUN pip3 install PyYAML
 
 COPY feed.py /usr/bin/feed.py
 
