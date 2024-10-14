@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-RUN apt-get update && apt-get install -y apt-utils && apt-get install \
+RUN apt-get update && apt-get install -y \
     python3.10 \
     python3-apt \
     python3-pip \
@@ -8,9 +8,9 @@ RUN apt-get update && apt-get install -y apt-utils && apt-get install \
     python3-virtualenv \
     git
 
-# RUN pip install pyyaml --global-option=--with-libyaml
+RUN python -m pip install --upgrade pip
 
-RUN pip3 install PyYAML
+RUN pip install PyYAML
 
 COPY feed.py /usr/bin/feed.py
 
